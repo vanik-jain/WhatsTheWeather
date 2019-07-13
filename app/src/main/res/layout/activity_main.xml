@@ -1,44 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
- <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="#21A3BA"
-    android:layout_height="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+tools:context=".MainActivity">
+
+<LinearLayout
+
+    android:orientation="horizontal"
+    android:padding="13dp"
+    android:layout_centerInParent="true"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:visibility="invisible"
+    android:id="@+id/progressbar_layout"
+    android:background="@drawable/myrect"
+    android:elevation="5dp">
+
+    <ProgressBar
+        android:id="@+id/loader"
+        android:layout_marginEnd="5dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:theme="@style/AppTheme"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="Loading Weather..."
+        android:layout_gravity="center_vertical"
+        android:id="@+id/loading_msg"
+        android:textSize="15.311sp"
+        android:layout_height="wrap_content" />
+</LinearLayout>
+
+<LinearLayout
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:weightSum="100"
+    android:layout_centerInParent="true"
     >
 
 
 
+
+
     <EditText
+
+        android:inputType="textEmailAddress"
+        android:padding="15dp"
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="25dp"
+        android:textSize="18.311sp"
+        android:textColor="#0d0101"
+        android:lineSpacingExtra="6.867sp"
+        android:layout_marginTop="1.373dp"
+        android:layout_marginRight="22.5dp"
+        android:layout_marginLeft="22.5dp"
         android:hint="Enter City"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:layout_marginTop="50dp"
         android:id="@+id/editText1"
+
         />
 
 
-    <Button
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_gravity="center"
+
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:text="Check Weather!"
-        android:layout_below="@+id/editText1"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="35dp"
-        android:layout_marginRight="35dp"
-        android:id="@+id/button"
-        android:background="#E30B5D"
-        android:onClick="checkWeather"
-        android:padding="20dp"
+        android:textSize="15.311sp"
+        android:textColor="#525050"
+        android:lineSpacingExtra="6.867sp"
+        android:layout_marginTop="5.117dp"
+        android:layout_marginLeft="22.5dp"
+        android:layout_marginRight="22.5dp"
+
 
         />
+
 
     <TextView
         android:layout_width="match_parent"
@@ -51,11 +93,33 @@
         android:layout_marginTop="25dp"
         android:textSize="25dp"
 
+        />
+    <Button
 
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:textColor="#ffffff"
+
+        android:textSize="22.8sp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+
+
+        android:text="Check Weather!"
+        android:layout_below="@+id/editText1"
+        android:layout_marginTop="25dp"
+
+        android:id="@+id/button"
+
+        android:onClick="checkWeather"
+        android:padding="20dp"
 
         />
 
-
+</LinearLayout>
 
 
 </RelativeLayout>

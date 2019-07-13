@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
@@ -27,7 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     EditText editText;
     TextView textView;
-
+LinearLayout linearLayout;
+TextView loadingMsg;
 
     public void checkWeather(View view)
     {
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             DataDownload dataDownload = new DataDownload();
 
 
-            dataDownload.execute("https://samples.openweathermap.org/data/2.5/weather?q="+cityName+"&appid=b6907d289e10d714a6e88b30761fae22" );
+            dataDownload.execute("https://openweathermap.org/data/2.5/weather?q="+cityName+"&appid=b6907d289e10d714a6e88b30761fae22" );
 
 
 
@@ -67,6 +69,14 @@ public class MainActivity extends AppCompatActivity {
 
         String result;
         String result1;
+
+        @Override
+        protected void onPreExecute()
+        {
+            super.onPreExecute();
+            //loadingMsg.setText("Fetching Models");
+            linearLayout.setVisibility(View.VISIBLE);
+        }
 
         @Override
         protected String doInBackground(String... urls)
@@ -119,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-
+            linearLayout.setVisibility(View.INVISIBLE);
            // String message = "";
             String main = "";
            String description= "";
@@ -191,6 +201,7 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.textView);
 
 
-
+        linearLayout=findViewById(R.id.progressbar_layout);
+        loadingMsg = findViewById(R.id.loading_msg);
     }
 }
